@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 def init():
     global model
-    model = pickle.load(open('model.pkl', 'rb'))
+    model = pickle.load(open('/home/hb/PROJECT/Chatbot_project/model2.pkl', 'rb'))
 
 @app.route('/', methods =['GET'])
 def home():

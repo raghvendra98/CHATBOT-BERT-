@@ -4,15 +4,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>ML API</title>
+  <title>CHATBOT</title>
   <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script>
-    le t loader, questionContainer, answerContainer;
+    let loader, questionContainer, answerContainer;
     let p_answer;
+    let p_accuracy;
 
     async function postData(url = '', data = {}) {
       // Default options are marked with *
@@ -41,7 +42,8 @@
           console.log(data); // JSON data parsed by `data.json()` call
           loader.style.display = "none";
           answerContainer.style.display = "block";
-          p_answer.innerHTML = data;
+          p_answer.innerHTML = data['data']['Answer'];
+          p_accuracy.innerHTML = data['data']['Accuracy'];
         });
     }
 
@@ -50,6 +52,7 @@
       questionContainer = document.getElementById("question_container");
       answerContainer = document.getElementById('answer_container');
       p_answer = document.getElementById("answer");
+      p_accuracy = document.getElementById("accuracy")
 
       let btn = document.getElementById("btn-go");
       btn.onclick = (e) => {
@@ -72,13 +75,36 @@
       background: #fff;
       display: none;
     }
+
+    .bbody {
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  color: white;
+  border: ;
+  margin: 20px;
+  padding: 50px 30% 75px 30%;}
+
+  .text {
+  width: 320px;
+  padding: 10px;
+  border: 5px solid gray;
+  margin: 0;}
+
+   .atl {background-color: #DBF9FC;
+         color: blue;
+
+          }
+    .padd {
+
+             }
+
   </style>
 </head>
 
-<body>
-  <div id='loader' style="display:none">
+<body class="bbody">
+  <div id='loader' style="display:none background-color:red">
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">
   </div>
+  <a class="atl">
   <div class="login" id="question_container">
     <h1>Enter question here</h1>
 
@@ -92,10 +118,11 @@
     <br>
 
   </div>
-
+</a>
   <div id="answer_container" style="display: none;">
+    <p id="answer">answer</p>
+    <p id="accuracy">accuracy</p>
 
-    <p id="answer"></p>
 
 
   </div>
