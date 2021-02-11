@@ -77,11 +77,16 @@
     }
 
     .bbody {
-  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+  background: rgba(64, 102, 135, 1);
   color: white;
   border: ;
   margin: 20px;
-  padding: 50px 30% 75px 30%;}
+  padding: 50px 30% 75px 33%;}
+
+    .body1{
+            margin: 30px;
+  }
+
 
   .text {
   width: 320px;
@@ -90,18 +95,21 @@
   margin: 0;}
 
    .atl {background-color: #DBF9FC;
-         color: blue;
+         color: White;
 
           }
-    .padd {
+    .ldr { padding: 100px 30% 75px 33%;
+           margin: 20px;
 
              }
+
+
 
   </style>
 </head>
 
 <body class="bbody">
-  <div id='loader' style="display:none background-color:red">
+  <div class='ldr' id='loader' style="display:none background-color:red">
     <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">
   </div>
   <a class="atl">
@@ -109,7 +117,7 @@
     <h1>Enter question here</h1>
 
     <!-- Main Input For Receiving Query to our ML -->
-    <input type="text" name="query" placeholder="What's is your question ?" required="required" />
+    <input class="body1" type="text" name="query" placeholder="What's is your question ?" required="required" />
 
 
     <button type="submit" id="btn-go" class="btn btn-primary btn-block btn-large">Enter</button>
@@ -119,14 +127,12 @@
 
   </div>
 </a>
+  <a >
   <div id="answer_container" style="display: none;">
-    <p id="answer">answer</p>
-    <p id="accuracy">accuracy</p>
-
-
-
+    <h1 style="color: #CCF381 "><p id="answer">answer</p></h1>
+    <h2 style="color: #FAR744 "><p id="accuracy">accuracy</p></h2>
   </div>
-
+   </a>
 
 </body>
 
